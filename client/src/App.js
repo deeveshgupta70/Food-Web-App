@@ -4,19 +4,14 @@ import Header from './components/Header';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setDataReducer } from './redux/productSlice';
-import { data } from './data';
-
 function App() {
 
   const dispatch = useDispatch();
 
   useEffect(()=>{
     const fetchFun = async()=>{
-      // const res = await fetch(`${process.env.REACT_APP_SERVER_DOMAIN}/product`);
-      // const resData = await res.json();
-      // console.log(resData);
-      // const originalData = data;
-      // console.log(data);
+      const res = await fetch(`${process.env.REACT_APP_SERVER_DOMAIN}/product`);
+      const data = await res.json();
 
       dispatch(setDataReducer(data));
     };
